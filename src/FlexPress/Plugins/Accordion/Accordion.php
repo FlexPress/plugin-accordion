@@ -92,8 +92,7 @@ class Accordion extends AbstractPlugin
     {
 
         $args = array(
-            'public' => true,
-            '_builtin' => true
+            'public' => true
         );
 
         $context = \Timber::get_context();
