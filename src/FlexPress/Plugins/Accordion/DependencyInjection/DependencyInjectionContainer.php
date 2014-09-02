@@ -1,8 +1,8 @@
 <?php
 
-namespace FlexPress\Plugins\Accordian\DependencyInjection;
+namespace FlexPress\Plugins\Accordion\DependencyInjection;
 
-use FlexPress\Plugins\Accordian\Accordion;
+use FlexPress\Plugins\Accordion\Accordion;
 use FlexPress\Components\Shortcode\Helper as ShortcodeHelper;
 use FlexPress\Components\ACF\Helper as ACFHelper;
 
@@ -31,7 +31,7 @@ class DependencyInjectionContainer extends \Pimple
         };
 
         $this['accordionShortcode'] = function ($c) {
-            return new \FlexPress\Plugins\Accordian\Shortcodes\Accordion($c['Accordian']);
+            return new \FlexPress\Plugins\Accordion\Shortcodes\Accordion($c['Accordian']);
         };
 
     }

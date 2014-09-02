@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: Accordian
- * Plugin URI: https://github.com/FlexPress/plugin-accordian
+ * Plugin Name: Accordion
+ * Plugin URI: https://github.com/FlexPress/plugin-accordion
  * Description: FlexPress based plugin
  * Version: 1.0.0
  * Author: FlexPress
@@ -10,11 +10,11 @@
  * License: MIT
  */
 
-use FlexPress\Plugins\Accordian\DependencyInjection\DependencyInjectionContainer;
+use FlexPress\Plugins\Accordion\DependencyInjection\DependencyInjectionContainer;
 
 // Dependency Injection
 $dic = new DependencyInjectionContainer();
 $dic->init();
 
 // Run app
-$dic['accordian']->init(__FILE__);
+$dic['accordion']->init(__FILE__);

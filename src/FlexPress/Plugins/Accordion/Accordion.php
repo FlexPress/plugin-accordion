@@ -1,6 +1,6 @@
 <?php
 
-namespace FlexPress\Plugins\Accordian;
+namespace FlexPress\Plugins\Accordion;
 
 use FlexPress\Components\Shortcode\Helper as ShortcodeHelper;
 use FlexPress\Components\ACF\Helper as ACFHelper;

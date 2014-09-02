@@ -1,6 +1,6 @@
 <?php
 
-namespace FlexPress\Plugins\Accordian\Shortcodes;
+namespace FlexPress\Plugins\Accordion\Shortcodes;
 
 use FlexPress\Components\Shortcode\AbstractShortcode;
 
@@ -11,7 +11,7 @@ class Accordion extends AbstractShortcode
     const SHORTCODE_NAME = 'accordion';
 
     /**
-     * @var \FlexPress\Plugins\Accordian\Accordion
+     * @var \FlexPress\Plugins\Accordion\Accordion
      */
     protected $accordion;
 

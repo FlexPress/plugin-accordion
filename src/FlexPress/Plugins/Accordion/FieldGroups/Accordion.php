@@ -1,6 +1,6 @@
 <?php
 
-namespace FlexPress\Plugins\Accordian\FieldGroups;
+namespace FlexPress\Plugins\Accordion\FieldGroups;
 
 use FlexPress\Components\ACF\AbstractFieldGroup;
 
@@ -23,10 +23,10 @@ class Accordion extends AbstractFieldGroup
                     array(
                         'key' => 'field_53aad49dd9bcb',
                         'label' => 'Accordion',
-                        'name' => \FlexPress\Plugins\Accordian\Shortcodes\Accordion::ACF_FIELD_NAME_ACCORDION,
+                        'name' => \FlexPress\Plugins\Accordion\Shortcodes\Accordion::ACF_FIELD_NAME_ACCORDION,
                         'type' => 'repeater',
                         'order_no' => 0,
-                        'instructions' => 'To display your accordion content on the page add the following shortcode to the main editor where you would like the accordion to display: [' . \FlexPress\Plugins\Accordian\Shortcodes\Accordion::ACF_FIELD_NAME_ACCORDIONSHORTCODE_NAME . ']',
+                        'instructions' => 'To display your accordion content on the page add the following shortcode to the main editor where you would like the accordion to display: [' . \FlexPress\Plugins\Accordion\Shortcodes\Accordion::ACF_FIELD_NAME_ACCORDIONSHORTCODE_NAME . ']',
                         'required' => 0,
                         'conditional_logic' =>
                             array(
@@ -93,7 +93,7 @@ class Accordion extends AbstractFieldGroup
 
         $config['location']['rules'] = array();
 
-        if ($postTypes = get_option(\FlexPress\Plugins\Accordian\Accordion::OPTION_NAME_SHOW_ON)) {
+        if ($postTypes = get_option(\FlexPress\Plugins\Accordion\Accordion::OPTION_NAME_SHOW_ON)) {
 
             foreach ($postTypes as $postType) {
 
