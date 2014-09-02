@@ -1,5 +1,5 @@
 {
-    "name": "flexpress/accordion",
+    "name": "flexpress/plugin-accordion",
     "description": "FlexPress based plugin",
     "type": "project",
     "license": "MIT",
