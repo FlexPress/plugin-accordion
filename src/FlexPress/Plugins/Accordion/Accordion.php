@@ -6,8 +6,11 @@ use FlexPress\Components\Shortcode\Helper as ShortcodeHelper;
 use FlexPress\Components\ACF\Helper as ACFHelper;
 use FlexPress\Plugins\AbstractPlugin;
 
-class Accordian extends AbstractPlugin
+class Accordion extends AbstractPlugin
 {
+
+    const SETTINGS_GROUP_NAME = 'flexpress-accordion-settings-group';
+    const OPTION_NAME_SHOW_ON = 'flexpress-accordion-show-on';
 
     /**
      * @var ShortcodeHelper
@@ -42,6 +45,38 @@ class Accordian extends AbstractPlugin
 
         add_action('admin_notices', array($this, "adminNotices"));
 
+        add_options_page(
+            'Accordion',
+            'Accordion',
+            'manage_options',
+            'flexpress-accordion-options',
+            array($this, 'menuPageCallback')
+        );
+
+    }
+
+    /**
+     *
+     * Callback methods for the options page
+     *
+     * @author Tim Perry
+     *
+     */
+    public function menuPageCallback()
+    {
+
+        $args = array(
+            'public' => true,
+            '_builtin' => false
+        );
+
+        $context = \Timber::getContext();
+        $context['postTypes'] = get_post_types($args, 'names');
+        $context['settingsGroupName'] = self::SETTINGS_GROUP_NAME;
+        $context['fieldName'] = self::OPTION_NAME_SHOW_ON;
+        $context['currentValue'] = get_option(self::OPTION_NAME_SHOW_ON);
+
+        \Timber::render($this->getPath() . '/views/options-page.twig', $context);
     }
 
     /**
@@ -56,14 +91,14 @@ class Accordian extends AbstractPlugin
         if (!function_exists('get_field')) {
             ?>
             <div class="error">
-                <p>FlexPress Shortcodes - acf is not installed, please install it to use the shortcodes plugin.</p>
+                <p>FlexPress Accordion - acf is not installed, please install it to use the shortcodes plugin.</p>
             </div>
         <?php
         }
         if (!class_exists('Timber')) {
             ?>
             <div class="error">
-                <p>FlexPress Shortcodes - Timber is not installed, please install it to use the shortcodes plugin.</p>
+                <p>FlexPress Accordion - Timber is not installed, please install it to use the shortcodes plugin.</p>
             </div>
         <?php
         }

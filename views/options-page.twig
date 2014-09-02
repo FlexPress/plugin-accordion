@@ -1,0 +1,12 @@
+<h1>Accordion options</h1>
+
+<h2>Show accordion on:</h2>
+
+<form action="options.php" method="post">
+    {{ function('settings_fields', settingsGroupName) }}
+    {% for postType in postTypes %}
+        <label for="{{ postType }}">
+            <input type="checkbox" name="{{ fieldName }}[]" id="{{ postType }}" value="{{ postType }}" {% if postType in currentValue %}/> {{ postType }}
+        </label>
+    {% endfor %}
+</form>

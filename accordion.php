@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Accordian
- * Plugin URI: https://github.com/FlexPress/plugin-boilerplate
+ * Plugin URI: https://github.com/FlexPress/plugin-accordian
  * Description: FlexPress based plugin
  * Version: 1.0.0
  * Author: FlexPress
@@ -17,4 +17,4 @@ $dic = new DependencyInjectionContainer();
 $dic->init();
 
 // Run app
-$dic['Accordian']->init(__FILE__);
+$dic['accordian']->init(__FILE__);
