@@ -10,14 +10,11 @@ class Accordion extends AbstractShortcode
     const ACF_FIELD_NAME_ACCORDION = 'fp_accordion';
     const SHORTCODE_NAME = 'accordion';
 
-    /**
-     * @var \FlexPress\Plugins\Accordion\Accordion
-     */
-    protected $accordion;
+    protected $dic;
 
-    public function __construct($accordion)
+    public function __construct($dic)
     {
-        $this->accordion = $accordion;
+        $this->dic = $dic;
     }
 
     /**
@@ -39,7 +36,7 @@ class Accordion extends AbstractShortcode
     public function getCallback()
     {
 
-        if (function_exists('get_field')) {
+        if (!function_exists('get_field')) {
             return false;
         }
 
@@ -49,12 +46,12 @@ class Accordion extends AbstractShortcode
 
             foreach ($accordions as $accordion) {
 
-                $context = \Timber::getContext();
+                $context = \Timber::get_context();
                 $context["accordion"] = $accordion;
 
                 $template = apply_filters(
                     'fpshortcode_timber_template',
-                    $this->accordion->getViewPath() . "/accordion.twig"
+                    $this->dic['accordionPlugin']->getPath() . "/views/accordion.twig"
                 );
 
                 $markup .= \Timber::compile($template, $context);

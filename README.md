@@ -1,23 +1,12 @@
-# FlexPress plugin boilerplate framework
-
-Boilerplate framework for creating plugins.
+# FlexPress accordion plugin
 
 ## Install
-Download using composer
-```
-composer create-project flexpress/plugin-framework <pluginname>
-```
-Once it has finished installing, run the installer script and answer the questions it asks:
-```
-./install.sh
-```
-Let the installer run and it should be all setup.
+Install via composer
 
-If you are not using composer to include this you will want to dump the autoloader again:
 ```
-composer dump-autoload
+composer require flexpress/plugin-accordion 1.0.*
 ```
-and then you will also want to include the autoloader in the <pluginname>.php file:
-```
-require_once 'vendor/autoload.php';
-```
+
+## Setup
+- Install ACF repeater (http://www.advancedcustomfields.com/add-ons/repeater-field/)
+- You then need to change what post types it should display on, what can be done by visiting {wp-admin-url}/options-general.php?page=flexpress-accordion-options or via settings > Accordion.

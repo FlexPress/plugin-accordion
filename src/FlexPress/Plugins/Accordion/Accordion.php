@@ -43,7 +43,33 @@ class Accordion extends AbstractPlugin
         $this->shortcodeHelper->registerShortcodes();
         $this->acfHelper->registerFieldGroups();
 
+        add_action('admin_init', array($this, "adminInit"));
+        add_action('admin_menu', array($this, "adminMenu"));
         add_action('admin_notices', array($this, "adminNotices"));
+
+    }
+
+    /**
+     *
+     * Register our options
+     *
+     * @author Tim Perry
+     *
+     */
+    public function adminInit()
+    {
+        register_setting(self::SETTINGS_GROUP_NAME, self::OPTION_NAME_SHOW_ON);
+    }
+
+    /**
+     *
+     * Used to add the options page
+     *
+     * @author Tim Perry
+     *
+     */
+    public function adminMenu()
+    {
 
         add_options_page(
             'Accordion',
@@ -67,10 +93,10 @@ class Accordion extends AbstractPlugin
 
         $args = array(
             'public' => true,
-            '_builtin' => false
+            '_builtin' => true
         );
 
-        $context = \Timber::getContext();
+        $context = \Timber::get_context();
         $context['postTypes'] = get_post_types($args, 'names');
         $context['settingsGroupName'] = self::SETTINGS_GROUP_NAME;
         $context['fieldName'] = self::OPTION_NAME_SHOW_ON;
@@ -88,6 +114,7 @@ class Accordion extends AbstractPlugin
      */
     public function adminNotices()
     {
+
         if (!function_exists('get_field')) {
             ?>
             <div class="error">

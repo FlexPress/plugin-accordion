@@ -26,7 +26,7 @@ class Accordion extends AbstractFieldGroup
                         'name' => \FlexPress\Plugins\Accordion\Shortcodes\Accordion::ACF_FIELD_NAME_ACCORDION,
                         'type' => 'repeater',
                         'order_no' => 0,
-                        'instructions' => 'To display your accordion content on the page add the following shortcode to the main editor where you would like the accordion to display: [' . \FlexPress\Plugins\Accordion\Shortcodes\Accordion::ACF_FIELD_NAME_ACCORDIONSHORTCODE_NAME . ']',
+                        'instructions' => 'To display your accordion content on the page add the following shortcode to the main editor where you would like the accordion to display: [' . \FlexPress\Plugins\Accordion\Shortcodes\Accordion::SHORTCODE_NAME . ']',
                         'required' => 0,
                         'conditional_logic' =>
                             array(
@@ -97,7 +97,7 @@ class Accordion extends AbstractFieldGroup
 
             foreach ($postTypes as $postType) {
 
-                $acf_accordion['location']['rules'][] = array(
+                $config['location']['rules'][] = array(
                     'param' => 'post_type',
                     'operator' => '==',
                     'value' => $postType,
